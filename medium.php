@@ -21,7 +21,8 @@ $priceList = [
 // эта переменная содержит желаемое количество товаров для закупки
 $amountTarget = 76;
 
-function printPriceList($priceList) {
+function printPriceList($priceList)
+{
     echo "Price list:\n";
     echo "[id, count, price, pack]\n";
     foreach ($priceList as $data) {
@@ -29,7 +30,8 @@ function printPriceList($priceList) {
     }
     echo "\n";
 }
-function printResult($result) {
+function printResult($result)
+{
     echo "Order plan:\n";
     $plan = [];
     foreach ($result as $id => $data) {
@@ -55,9 +57,10 @@ $minPrice = null;
 // $path - сюда собираем план закупки в формате [[id1 => amount11], [id2 => amount22] ...]
 // $result - сюда запиши окончатеьный вариант "пална" закупки
 // переменная для поиска плана с минимальной стоимостью
-function findCombinations($priceList, $amountTarget, $start, $path, &$result, &$minPrice) {
+function findCombinations($priceList, $amountTarget, $start, $path, &$result, &$minPrice)
+{
     // если в текущей итерации необходимое кол-во для заказа товара 0,
-    // то $path содержит заверщенный план закупки
+    // то $path содержит завершенный план закупки
     if ($amountTarget == 0) {
 
         // проверим является ли этот план с минимальной стоимостью
@@ -84,7 +87,7 @@ function findCombinations($priceList, $amountTarget, $start, $path, &$result, &$
         }
 
         if ($pack > $amountTarget) {
-            continue; // предложение превышает спрос, не будем анализировать 
+            continue; // предложение превышает спрос, не будем анализировать
         }
 
         // определим сколько пакетов товара может продать этот поставщшик
